@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  actions: write
+  contents: read
+
 jobs:
   train:
     name: Train Model (CI)
@@ -52,8 +56,8 @@ jobs:
       - name: Read metrics
         id: metrics
         run: |
-          echo "R2=$(jq -r .R2 metrics.json)" >> $GITHUB_ENV
-          echo "MSE=$(jq -r .MSE metrics.json)" >> $GITHUB_ENV
+          echo "R2=$(jq -r .r2 metrics.json)" >> $GITHUB_ENV
+          echo "MSE=$(jq -r .mse metrics.json)" >> $GITHUB_ENV
 
       - name: Compare with best metrics
         run: |
@@ -79,7 +83,7 @@ jobs:
 
       - name: Update best metrics
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh variable set BEST_R2 --body "$R2"
           gh variable set BEST_MSE --body "$MSE"
