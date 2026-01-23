@@ -12,24 +12,6 @@ A machine learning project that predicts wine quality using Lasso regression. Th
 
 This project trains a Lasso regression model to predict wine quality based on various wine characteristics. The model is trained on a wine quality dataset and evaluated using Mean Squared Error (MSE) and R² Score metrics.
 
-## 🏗️ Project Structure
-
-```
-lab2_bcd49/
-├── data/
-│   └── wine_quality.csv          # Dataset file
-├── output/
-│   ├── model/
-│   │   └── model.pkl             # Trained model (generated)
-│   └── results/
-│       └── metrics.json          # Evaluation metrics (generated)
-├── .github/
-│   └── workflows/
-│       └── train.yaml            # GitHub Actions CI/CD workflow
-├── train.py                      # Main training script
-├── requirements.txt              # Python dependencies
-└── README.md                     # This file
-```
 
 ## 🚀 Setup
 
@@ -43,8 +25,8 @@ lab2_bcd49/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/2022bcd49naman/lab2_bcd49
-cd lab2_bcd49
+git clone https://github.com/2022bcd49naman/lab4_naman_bcd49
+cd lab4_naman_bcd49
 ```
 
 2. Install dependencies:
