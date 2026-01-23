@@ -6,7 +6,7 @@ A machine learning project that predicts wine quality using Lasso regression. Th
 
 - **Author:** Naman Omar
 - **Roll Number:** 2022BCD0049
-- **Course:** CSS426 - Lab 2
+- **Course:** CSS426 - Lab 4
 
 ## 🎯 Overview
 
@@ -125,4 +125,4 @@ The model is evaluated using:
 
 ## 📄 License
 
-This project is part of a course assignment (CSS426 Lab 2).
+This project is part of a course assignment (CSS426 Lab 4).

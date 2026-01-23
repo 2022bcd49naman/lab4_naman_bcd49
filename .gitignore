@@ -139,4 +139,5 @@ Thumbs.db
 
 # Docker
 .dockerignore
-
+image/
+new.md
