@@ -53,11 +53,23 @@ jobs:
         with:
           name: model-artifacts
 
-      - name: Read metrics
-        id: metrics
+      - name: Debug metrics.json
         run: |
-          echo "R2=$(jq -r .r2 metrics.json)" >> $GITHUB_ENV
-          echo "MSE=$(jq -r .mse metrics.json)" >> $GITHUB_ENV
+          echo "===== metrics.json content ====="
+          cat metrics.json
+
+      - name: Read metrics safely
+        run: |
+          R2=$(jq -r '.R2 // empty' metrics.json)
+          MSE=$(jq -r '.MSE // empty' metrics.json)
+
+          if [ -z "$R2" ] || [ -z "$MSE" ]; then
+            echo "Metric extraction failed!"
+            exit 1
+          fi
+
+          echo "R2=$R2" >> $GITHUB_ENV
+          echo "MSE=$MSE" >> $GITHUB_ENV
 
       - name: Compare with best metrics
         run: |
