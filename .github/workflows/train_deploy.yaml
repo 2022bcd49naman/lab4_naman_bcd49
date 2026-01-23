@@ -83,7 +83,7 @@ jobs:
 
       - name: Update best metrics
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           gh variable set BEST_R2 --body "$R2"
           gh variable set BEST_MSE --body "$MSE"
