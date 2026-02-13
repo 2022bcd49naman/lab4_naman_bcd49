@@ -9,6 +9,7 @@ import os
 
 os.makedirs("./model", exist_ok=True)
 os.makedirs("./results", exist_ok=True)
+os.makedirs("./app/artifacts", exist_ok=True)
 
 # Load dataset
 df = pd.read_csv("./data/wine_quality.csv")
@@ -43,8 +44,9 @@ joblib.dump(model, "./model/model.pkl")
 
 results = {
     "MSE": mse,
-    "R2": r2
+    "R2": r2,
+    "accuracy": r2  # Using R2 score as accuracy metric for regression
 }
 
-with open("./metrics.json", "w") as f:
+with open("./app/artifacts/metrics.json", "w") as f:
     json.dump(results, f, indent=4)
