@@ -20,6 +20,13 @@ class WineInput(BaseModel):
     sulphates: float
     alcohol: float
 
+@app.get("/")
+def root():
+    return {"message": "Welcome to the Wine Quality Prediction API"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 @app.post("/predict")
 def predict_wine_quality(data: WineInput):
